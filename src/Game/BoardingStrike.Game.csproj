@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>BoardingStrike.Game</RootNamespace>
+    <AssemblyName>BoardingStrike.Game</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\BoardingStrike.Core.csproj" />
+  </ItemGroup>
+
+</Project>

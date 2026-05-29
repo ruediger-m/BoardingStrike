@@ -24,11 +24,11 @@ The signature design hook is the action economy: each turn, every character comm
 
 Each iteration is a self-contained vertical slice with its own plan. Later iterations expand scope; the core action-economy loop is locked from Iteration 1.
 
-- **Iteration 1 — MVP Vertical Slice.** One handcrafted mission, one class (Boarding Marine, four identical squad members), two enemy types (swarmer + spitter), full action/refresh loop, line of sight, doors, three status conditions, deterministic + modifier-deck combat resolution, 32×32 pixel top-down. No campaign layer yet; the mission stands alone. See [plans/iteration-1-mvp.md](plans/iteration-1-mvp.md).
-- **Iteration 2 — Class Diversity.** Two additional classes with distinct decks (e.g., a Breacher and a Tech-Specialist), simple loot drops, three more enemy types, overwatch/reaction-fire mechanic.
-- **Iteration 3 — Campaign Layer.** Persistent roster, branching scenario map, between-mission upgrades, save/load. Three missions wired into the map.
-- **Iteration 4 — Content & Polish.** More missions, more enemies, environmental hazards (vacuum, fire, radiation), narrative beats between missions.
-- **Iteration 5+ — Presentation evolution.** Move to isometric, then optionally full 3D. Audio pass. UI polish. Modding hooks.
+- **Iteration 1 — MVP Vertical Slice.** One handcrafted mission ([Hangar Sweep](design/content/mission-hangar-sweep.md)), one class (Boarding Marine, four identical squad members), two enemy types (swarmer + spitter), full action/refresh loop, line of sight, doors, three status conditions, deterministic + modifier-deck combat resolution, 32×32 pixel top-down. No campaign layer yet; the mission stands alone. See [plans/iteration-1-mvp.md](plans/iteration-1-mvp.md).
+- **Iteration 2 — Class Diversity and Mission Variety.** Two additional classes with distinct decks (Breacher and Tech-Specialist), three more enemy types, overwatch/reaction-fire mechanic, mission-select screen, and **two new missions**: [Captain's Cabin](design/content/mission-captains-cabin.md) (reach-hex-with-radius-cleared archetype) and [Containment](design/content/mission-containment.md) (multi-phase interact-and-hold with reinforcements). See [plans/iteration-2-class-diversity.md](plans/iteration-2-class-diversity.md).
+- **Iteration 3 — Campaign Layer.** Persistent roster, branching scenario map, between-mission upgrades, save/load.
+- **Iteration 4 — Content & Polish.** More missions, more enemies, environmental hazards (vacuum, fire, radiation), narrative beats between missions, audio first pass.
+- **Iteration 5+ — Presentation evolution.** Move to isometric, then optionally full 3D. UI polish. Modding hooks.
 
 The roadmap is a sketch, not a contract. Each iteration's scope is finalized in its plan doc at the start of that iteration.
 

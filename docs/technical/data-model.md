@@ -170,9 +170,9 @@ Reserved (not in MVP): `poisoned`, `muddled`, `invisible`, `strengthen`.
 ```jsonc
 {
   "version": 1,
-  "id": "derelict_alpha",
+  "id": "map_derelict_alpha",
   "name": "Derelict Alpha",
-  "bounds": { "q_min": 0, "q_max": 19, "r_min": 0, "r_max": 19 },
+  "bounds": { "q_min": 0, "q_max": 19, "r_min": 0, "r_max": 15 },
   "hexes": [
     { "q": 0, "r": 0, "kind": "floor" },
     { "q": 1, "r": 0, "kind": "floor" },
@@ -206,9 +206,9 @@ Marine slots are filled by the scenario's chosen squad in slot order.
 ```jsonc
 {
   "version": 1,
-  "id": "mission_derelict_alpha",
-  "name": "Derelict Alpha",
-  "map_id": "derelict_alpha",
+  "id": "mission_hangar_sweep",
+  "name": "Hangar Sweep — Derelict Alpha",
+  "map_id": "map_derelict_alpha",
   "victory": { "kind": "eliminate_all_hostiles" },
   "failure": { "kind": "all_marines_exhausted" },
   "round_limit": null,
@@ -216,7 +216,15 @@ Marine slots are filled by the scenario's chosen squad in slot order.
 }
 ```
 
-Reserved victory/failure kinds: `reach_hex`, `escort_to_hex`, `interact_for_n_rounds`, `survive_n_rounds`, `defend_hex_for_n_rounds`.
+Reserved victory/failure kinds (extended in Iteration 2 — see [../plans/iteration-2-class-diversity.md](../plans/iteration-2-class-diversity.md)):
+
+- `reach_hex` — a marine ends a turn on a specific hex.
+- `reach_hex_with_radius_cleared` — `reach_hex` plus no hostiles within N hexes of the target.
+- `hold_hex_for_n_rounds` — a marine remains on a hex through N end-of-round ticks.
+- `escort_to_hex` — escort an NPC unit to a hex.
+- `survive_n_rounds`, `defend_hex_for_n_rounds` — time-based defense conditions.
+
+Iteration 2 also adds **multi-phase victory composition**: `victory` becomes an array of phases, each phase referencing one of the above primitives. The mission progresses through the phases in order; failure of an in-progress phase (e.g. the holding marine is killed during `hold_hex_for_n_rounds`) returns the mission to the prior phase. See [../plans/iteration-2-class-diversity.md](../plans/iteration-2-class-diversity.md) Step 1 for the spec.
 
 `rng_seed_source`:
 - `"scenario_id"` — deterministic from id (useful for testing).

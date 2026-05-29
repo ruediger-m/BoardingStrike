@@ -1,0 +1,22 @@
+<Project Sdk="Godot.NET.Sdk/4.4.0">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>BoardingStrike.Presentation</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!--
+    The presentation layer is the only assembly allowed to reference Godot.
+    It consumes the engine-independent gameplay libraries by project reference.
+    This csproj is intentionally NOT part of BoardingStrike.sln so that CI
+    (`dotnet build BoardingStrike.sln`) stays engine-free; the Godot editor
+    builds this project.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\src\Core\BoardingStrike.Core.csproj" />
+    <ProjectReference Include="..\src\Game\BoardingStrike.Game.csproj" />
+  </ItemGroup>
+
+</Project>

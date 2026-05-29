@@ -34,6 +34,16 @@ A hex has six neighbors at axial offsets:
 
 (For flat-top; these are the standard axial offsets.)
 
+> **TODO (naming consistency — non-blocking):** The direction *labels* in the
+> table above (E/NE/NW/W/SW/SE) are pointy-top conventions, but the grid is
+> rendered **flat-top**, where these axial offsets actually point N/S plus four
+> diagonals (the E/W neighbors of a flat-top hex are its pointed corners, not
+> edges). The axial *offsets* are correct and orientation-independent, so
+> distance, neighbors, pathfinding, and line-of-sight are all unaffected — only
+> the names are nominal. Resolve later by either (a) relabeling the directions
+> for flat-top (e.g. N, NE, SE, S, SW, NW), or (b) switching the renderer to
+> pointy-top. The code mirrors this note in `HexDirection` (`src/Core/Hex/`).
+
 ## Distance
 
 Hex distance is computed in cube coordinates: `dist = (|dx| + |dy| + |dz|) / 2`. Range checks and movement cost both use this distance.

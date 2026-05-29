@@ -1,0 +1,20 @@
+<!--
+  Shared MSBuild properties for the pure-C# gameplay projects (Core, Game, Game.Tests).
+  Scoped to src/ so the Godot project under godot/ keeps the TargetFramework that
+  Godot.NET.Sdk manages for it.
+
+  Target framework rationale: net8.0 matches Godot 4's expected runtime
+  (see docs/technical/architecture.md). Bump in one place here if Godot moves.
+-->
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Keep the rules engine engine-independent and warning-clean. -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>

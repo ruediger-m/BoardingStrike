@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#1b1f24"/>
+  <rect x="8" y="8" width="112" height="112" rx="12" fill="none" stroke="#3a4250" stroke-width="3"/>
+  <!-- stylised boarding chevron -->
+  <path d="M28 86 L64 34 L100 86 L84 86 L64 58 L44 86 Z" fill="#ff7a2f"/>
+  <rect x="40" y="94" width="48" height="8" rx="4" fill="#5bd6c0"/>
+</svg>

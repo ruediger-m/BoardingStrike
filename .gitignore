@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# .NET / C#
+# ---------------------------------------------------------------------------
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.userprefs
+project.lock.json
+artifacts/
+.vs/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# ---------------------------------------------------------------------------
+# Godot 4 (.NET)
+# ---------------------------------------------------------------------------
+# Engine-generated cache and import data. The editor regenerates these.
+.godot/
+# Godot 3 import sidecars (harmless to keep ignored).
+*.import
+# Mono/.NET build output produced under the Godot project.
+godot/.mono/
+godot/mono_crash.*.json
+# Exported builds.
+/export/
+/build/
+export_presets.cfg
+
+# ---------------------------------------------------------------------------
+# IDEs / editors
+# ---------------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*~
+
+# ---------------------------------------------------------------------------
+# OS cruft
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db

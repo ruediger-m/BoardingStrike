@@ -22,4 +22,4 @@ This folder is the source of truth for design decisions. It is the input to impl
 
 ## Current iteration
 
-[Iteration 1 — MVP Vertical Slice](plans/iteration-1-mvp.md): one handcrafted mission, four identical Boarding Marines, two enemy types (swarmer + spitter), full action/refresh loop, line of sight, doors, basic conditions. Built in Godot 4 with C#, 32×32 pixel art top-down.
+[Iteration 1 — MVP Vertical Slice](plans/iteration-1-mvp.md): the [Hangar Sweep](design/content/mission-hangar-sweep.md) mission, four identical Boarding Marines, two enemy types (swarmer + spitter), full action/refresh loop, line of sight, doors, basic conditions. Built in Godot 4 with C#, 32×32 pixel art top-down. Iteration 2 ([class diversity + Captain's Cabin + Containment](plans/iteration-2-class-diversity.md)) is drafted and queued.
