@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "standard_hostile",
+  "cards": [
+    { "effect": "multiply", "value": 0, "reshuffle": true, "count": 1 },
+    { "effect": "multiply", "value": 2, "reshuffle": true, "count": 1 },
+    { "effect": "add", "value": 0, "count": 8 },
+    { "effect": "add", "value": 1, "count": 5 },
+    { "effect": "add", "value": -1, "count": 5 }
+  ]
+}

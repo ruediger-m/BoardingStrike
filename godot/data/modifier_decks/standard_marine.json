@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "id": "standard_marine",
+  "cards": [
+    { "effect": "multiply", "value": 0, "reshuffle": true, "count": 1 },
+    { "effect": "multiply", "value": 2, "reshuffle": true, "count": 1 },
+    { "effect": "add", "value": 0, "count": 6 },
+    { "effect": "add", "value": 1, "count": 5 },
+    { "effect": "add", "value": -1, "count": 5 },
+    { "effect": "add", "value": 2, "count": 1 },
+    { "effect": "add", "value": -2, "count": 1 }
+  ]
+}

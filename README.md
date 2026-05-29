@@ -59,6 +59,7 @@ All design and technical specs live in [docs/](docs/). Start at [docs/README.md]
 ## Status
 
 - **Step 1 — project skeleton:** complete. Solution builds, tests pass, Godot project authored and compile-verified.
-- **Step 2 — hex Core:** complete. `HexCoord` (axial + cube distance/neighbors), `HexEdge`, flat-top `HexLayout`, deterministic A\* (`HexPathfinder` over `IHexGraph`), and edge-line `LineOfSight` over `ISightMap` with the conservative corner rule. 44 unit tests green.
+- **Step 2 — hex Core:** complete. `HexCoord` (axial + cube distance/neighbors), `HexEdge`, flat-top `HexLayout`, deterministic A\* (`HexPathfinder` over `IHexGraph`), and edge-line `LineOfSight` over `ISightMap` with the conservative corner rule.
+- **Step 3 — JSON content loader:** complete. DTO records for every content category, `ContentVocabulary` of allowed enum values, `JsonContentLoader` (System.Text.Json, snake_case, comments/trailing commas) producing a validated `ContentDatabase`, and `ContentValidator` covering required fields, enum membership, ranges, and cross-references. Bad content fails with an aggregated, line-by-line error list. The two attack-modifier decks are seeded under `godot/data/`. 56 unit tests green.
 
-Next up is **Step 3** (JSON content loader: DTOs + validation for cards, classes, enemies, maps, missions).
+Next up is **Step 4** (author the full Hangar Sweep content set) and **Step 5** (board state + rules engine).
