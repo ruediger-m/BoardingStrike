@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_withdraw",
+  "name": "Withdraw",
+  "initiative": 11,
+  "movement": 4,
+  "actions": [],
+  "target_priority": "none",
+  "movement_mode": "flee_from_closest_marine"
+}

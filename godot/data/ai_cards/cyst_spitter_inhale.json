@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "cyst_spitter_inhale",
+  "name": "Inhale",
+  "comment": "Telegraph card: does nothing this turn; the spitter's next attack deals +2 damage. The buff is applied by domain logic in Step 5 (no action primitive yet).",
+  "initiative": 41,
+  "movement": 0,
+  "actions": [],
+  "target_priority": "none",
+  "movement_mode": "static"
+}

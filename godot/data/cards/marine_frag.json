@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "id": "marine_frag",
+  "name": "Frag",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 40,
+  "top": {
+    "burn": true,
+    "actions": [ { "kind": "attack_ranged", "damage": 2, "range": 3, "on_hit_condition": "immobilized" } ]
+  },
+  "bottom": { "burn": false, "actions": [ { "kind": "apply_condition", "condition": "stunned" } ] },
+  "flavor": "Crowd control."
+}

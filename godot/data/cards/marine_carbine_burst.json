@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "id": "marine_carbine_burst",
+  "name": "Carbine Burst",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 28,
+  "top": { "burn": false, "actions": [ { "kind": "attack_ranged", "damage": 3, "range": 4 } ] },
+  "bottom": {
+    "burn": true,
+    "actions": [
+      { "kind": "move", "distance": 2 },
+      { "kind": "attack_ranged", "damage": 1, "range": 3 }
+    ]
+  },
+  "flavor": "Kite and shoot."
+}

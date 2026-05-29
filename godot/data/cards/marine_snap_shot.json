@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "marine_snap_shot",
+  "name": "Snap Shot",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 16,
+  "top": { "burn": false, "actions": [ { "kind": "attack_ranged", "damage": 2, "range": 4 } ] },
+  "bottom": { "burn": false, "actions": [ { "kind": "move", "distance": 2 } ] },
+  "flavor": "The reliable workhorse."
+}

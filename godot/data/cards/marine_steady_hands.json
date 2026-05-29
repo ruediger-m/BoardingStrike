@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "marine_steady_hands",
+  "name": "Steady Hands",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 33,
+  "top": { "burn": false, "actions": [ { "kind": "attack_ranged", "damage": 4, "range": 5 } ] },
+  "bottom": { "burn": false, "actions": [ { "kind": "heal", "amount": 1, "target": "self" } ] },
+  "flavor": "The sniper card."
+}

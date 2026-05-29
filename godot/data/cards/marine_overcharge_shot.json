@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "marine_overcharge_shot",
+  "name": "Overcharge Shot",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 35,
+  "top": { "burn": true, "actions": [ { "kind": "attack_ranged", "damage": 5, "range": 4 } ] },
+  "bottom": { "burn": false, "actions": [ { "kind": "move", "distance": 2 } ] },
+  "flavor": "Held for spitters."
+}

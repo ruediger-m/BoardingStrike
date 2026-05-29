@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "id": "cyst_spitter_acid_volley",
+  "name": "Acid Volley",
+  "initiative": 31,
+  "movement": 0,
+  "actions": [
+    { "kind": "attack_ranged", "damage": 2, "range": 5, "on_hit_condition": "wounded" },
+    { "kind": "attack_ranged", "damage": 1, "range": 5 }
+  ],
+  "target_priority": "highest_hp_marine_los",
+  "movement_mode": "static"
+}

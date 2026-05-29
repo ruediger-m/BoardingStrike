@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "id": "marine_push_forward",
+  "name": "Push Forward",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 18,
+  "top": { "burn": false, "actions": [ { "kind": "move", "distance": 4 } ] },
+  "bottom": {
+    "burn": true,
+    "actions": [
+      { "kind": "move", "distance": 2 },
+      { "kind": "attack_melee", "damage": 2 }
+    ]
+  },
+  "flavor": "Close the gap."
+}

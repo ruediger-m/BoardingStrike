@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "marine_knife_work",
+  "name": "Knife Work",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 12,
+  "top": { "burn": false, "actions": [ { "kind": "attack_melee", "damage": 3 } ] },
+  "bottom": { "burn": false, "actions": [ { "kind": "move", "distance": 3 } ] },
+  "flavor": "Fast and close."
+}

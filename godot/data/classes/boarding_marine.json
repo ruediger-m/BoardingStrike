@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "id": "boarding_marine",
+  "name": "Boarding Marine",
+  "hp": 10,
+  "sprite": "art/units/marine_default.png",
+  "starting_card_ids": [
+    "marine_snap_shot",
+    "marine_carbine_burst",
+    "marine_knife_work",
+    "marine_overcharge_shot",
+    "marine_breach_and_clear",
+    "marine_frag",
+    "marine_combat_stim",
+    "marine_suppressing_fire",
+    "marine_push_forward",
+    "marine_steady_hands"
+  ],
+  "modifier_deck_id": "standard_marine"
+}

@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "id": "map_derelict_alpha",
+  "name": "Derelict Alpha",
+  "comment": "Hangar Sweep map (docs/design/content/mission-hangar-sweep.md). Flat-top axial. Default is void (hull); floor cells are listed explicitly. Rooms are separated by void and joined by 5 doors; 5 wall edges seal the diagonal hex 'leaks' next to door necks so each gated room is reachable only through its door. Coordinates are v1 and tunable per the mission sheet.",
+  "bounds": { "q_min": 0, "q_max": 15, "r_min": 0, "r_max": 9 },
+  "default_hex_kind": "void",
+  "hexes": [
+    // Airlock antechamber (marine spawn) — q1..3, r1..3
+    { "q": 1, "r": 1, "kind": "floor" }, { "q": 2, "r": 1, "kind": "floor" }, { "q": 3, "r": 1, "kind": "floor" },
+    { "q": 1, "r": 2, "kind": "floor" }, { "q": 2, "r": 2, "kind": "floor" }, { "q": 3, "r": 2, "kind": "floor" },
+    { "q": 1, "r": 3, "kind": "floor" }, { "q": 2, "r": 3, "kind": "floor" }, { "q": 3, "r": 3, "kind": "floor" },
+
+    // Service corridor — r2, q4..9
+    { "q": 4, "r": 2, "kind": "floor" }, { "q": 5, "r": 2, "kind": "floor" }, { "q": 6, "r": 2, "kind": "floor" },
+    { "q": 7, "r": 2, "kind": "floor" }, { "q": 8, "r": 2, "kind": "floor" }, { "q": 9, "r": 2, "kind": "floor" },
+
+    // Closet A (off corridor) and Closet B
+    { "q": 5, "r": 3, "kind": "floor" }, { "q": 5, "r": 4, "kind": "floor" },
+    { "q": 8, "r": 3, "kind": "floor" }, { "q": 8, "r": 4, "kind": "floor" },
+
+    // Hangar bay — q10..15, r0..5 (catwalk = (15,2))
+    { "q": 10, "r": 0, "kind": "floor" }, { "q": 11, "r": 0, "kind": "floor" }, { "q": 12, "r": 0, "kind": "floor" }, { "q": 13, "r": 0, "kind": "floor" }, { "q": 14, "r": 0, "kind": "floor" }, { "q": 15, "r": 0, "kind": "floor" },
+    { "q": 10, "r": 1, "kind": "floor" }, { "q": 11, "r": 1, "kind": "floor" }, { "q": 12, "r": 1, "kind": "floor" }, { "q": 13, "r": 1, "kind": "floor" }, { "q": 14, "r": 1, "kind": "floor" }, { "q": 15, "r": 1, "kind": "floor" },
+    { "q": 10, "r": 2, "kind": "floor" }, { "q": 11, "r": 2, "kind": "floor" }, { "q": 12, "r": 2, "kind": "floor" }, { "q": 13, "r": 2, "kind": "floor" }, { "q": 14, "r": 2, "kind": "floor" }, { "q": 15, "r": 2, "kind": "floor" },
+    { "q": 10, "r": 3, "kind": "floor" }, { "q": 11, "r": 3, "kind": "floor" }, { "q": 12, "r": 3, "kind": "floor" }, { "q": 13, "r": 3, "kind": "floor" }, { "q": 14, "r": 3, "kind": "floor" }, { "q": 15, "r": 3, "kind": "floor" },
+    { "q": 10, "r": 4, "kind": "floor" }, { "q": 11, "r": 4, "kind": "floor" }, { "q": 12, "r": 4, "kind": "floor" }, { "q": 13, "r": 4, "kind": "floor" }, { "q": 14, "r": 4, "kind": "floor" }, { "q": 15, "r": 4, "kind": "floor" },
+    { "q": 10, "r": 5, "kind": "floor" }, { "q": 11, "r": 5, "kind": "floor" }, { "q": 12, "r": 5, "kind": "floor" }, { "q": 13, "r": 5, "kind": "floor" }, { "q": 14, "r": 5, "kind": "floor" }, { "q": 15, "r": 5, "kind": "floor" },
+
+    // Bridge neck
+    { "q": 12, "r": 6, "kind": "floor" },
+
+    // Bridge — q11..14, r7..9
+    { "q": 11, "r": 7, "kind": "floor" }, { "q": 12, "r": 7, "kind": "floor" }, { "q": 13, "r": 7, "kind": "floor" }, { "q": 14, "r": 7, "kind": "floor" },
+    { "q": 11, "r": 8, "kind": "floor" }, { "q": 12, "r": 8, "kind": "floor" }, { "q": 13, "r": 8, "kind": "floor" }, { "q": 14, "r": 8, "kind": "floor" },
+    { "q": 11, "r": 9, "kind": "floor" }, { "q": 12, "r": 9, "kind": "floor" }, { "q": 13, "r": 9, "kind": "floor" }, { "q": 14, "r": 9, "kind": "floor" }
+  ],
+  "edges": [
+    // Doors (5)
+    { "a": [3, 2], "b": [4, 2], "kind": "door", "initial_state": "closed" },   // Airlock <-> Corridor
+    { "a": [5, 2], "b": [5, 3], "kind": "door", "initial_state": "closed" },   // Corridor <-> Closet A
+    { "a": [8, 2], "b": [8, 3], "kind": "door", "initial_state": "closed" },   // Corridor <-> Closet B
+    { "a": [9, 2], "b": [10, 2], "kind": "door", "initial_state": "open" },    // Corridor <-> Hangar
+    { "a": [12, 5], "b": [12, 6], "kind": "door", "initial_state": "closed" }, // Hangar <-> Bridge neck
+
+    // Walls sealing diagonal leaks next to door necks (5)
+    { "a": [3, 3], "b": [4, 2], "kind": "wall" },
+    { "a": [5, 3], "b": [6, 2], "kind": "wall" },
+    { "a": [8, 3], "b": [9, 2], "kind": "wall" },
+    { "a": [9, 2], "b": [10, 1], "kind": "wall" },
+    { "a": [12, 6], "b": [13, 5], "kind": "wall" }
+  ],
+  "spawn_points": [
+    // Marines (airlock)
+    { "kind": "marine_slot", "hex": [1, 1], "slot": 1 },
+    { "kind": "marine_slot", "hex": [2, 1], "slot": 2 },
+    { "kind": "marine_slot", "hex": [1, 2], "slot": 3 },
+    { "kind": "marine_slot", "hex": [2, 2], "slot": 4 },
+
+    // Hangar — 4 swarmers + 1 catwalk spitter
+    { "kind": "enemy", "hex": [11, 1], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [13, 1], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [11, 4], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [14, 3], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [15, 2], "enemy_id": "cyst_spitter" },
+
+    // Closet A (2 swarmers, behind closed door)
+    { "kind": "enemy", "hex": [5, 3], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [5, 4], "enemy_id": "husk_swarmer" },
+
+    // Closet B (2 swarmers, behind closed door)
+    { "kind": "enemy", "hex": [8, 3], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [8, 4], "enemy_id": "husk_swarmer" },
+
+    // Bridge (2 swarmers + 1 spitter, behind closed door)
+    { "kind": "enemy", "hex": [12, 8], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [13, 8], "enemy_id": "husk_swarmer" },
+    { "kind": "enemy", "hex": [13, 9], "enemy_id": "cyst_spitter" }
+  ]
+}

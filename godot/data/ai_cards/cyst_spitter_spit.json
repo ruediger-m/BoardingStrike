@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "cyst_spitter_spit",
+  "name": "Spit",
+  "initiative": 26,
+  "movement": 2,
+  "actions": [ { "kind": "attack_ranged", "damage": 2, "range": 5, "on_hit_condition": "wounded" } ],
+  "target_priority": "highest_hp_marine_los",
+  "movement_mode": "reposition_for_los"
+}

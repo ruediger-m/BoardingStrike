@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "cyst_spitter_aimed_spit",
+  "name": "Aimed Spit",
+  "initiative": 38,
+  "movement": 1,
+  "actions": [ { "kind": "attack_ranged", "damage": 3, "range": 5, "on_hit_condition": "wounded" } ],
+  "target_priority": "highest_hp_marine_los",
+  "movement_mode": "reposition_for_los"
+}

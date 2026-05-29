@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_frenzied_bite",
+  "name": "Frenzied Bite",
+  "initiative": 32,
+  "movement": 2,
+  "actions": [ { "kind": "attack_melee", "damage": 3, "on_hit_condition": "wounded" } ],
+  "target_priority": "closest_marine",
+  "movement_mode": "approach_target"
+}

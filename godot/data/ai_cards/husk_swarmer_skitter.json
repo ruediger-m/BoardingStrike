@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_skitter",
+  "name": "Skitter",
+  "initiative": 25,
+  "movement": 3,
+  "actions": [ { "kind": "attack_melee", "damage": 2 } ],
+  "target_priority": "closest_marine",
+  "movement_mode": "approach_target"
+}

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "mission_hangar_sweep",
+  "name": "Hangar Sweep — Derelict Alpha",
+  "map_id": "map_derelict_alpha",
+  "victory": { "kind": "eliminate_all_hostiles" },
+  "failure": { "kind": "all_marines_exhausted" },
+  "round_limit": null,
+  "rng_seed_source": "scenario_id"
+}

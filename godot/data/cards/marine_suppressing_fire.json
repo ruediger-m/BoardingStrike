@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "id": "marine_suppressing_fire",
+  "name": "Suppressing Fire",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 21,
+  "top": {
+    "burn": true,
+    "comment": "MVP: applies 'immobilized' in place of the reserved 'muddled' condition (see class-boarding-marine.md tuning note).",
+    "actions": [ { "kind": "attack_ranged", "damage": 2, "range": 4, "on_hit_condition": "immobilized" } ]
+  },
+  "bottom": { "burn": false, "actions": [ { "kind": "attack_ranged", "damage": 1, "range": 4 } ] },
+  "flavor": "Keep their heads down."
+}

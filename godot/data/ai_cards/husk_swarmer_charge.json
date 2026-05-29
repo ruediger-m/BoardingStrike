@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_charge",
+  "name": "Charge",
+  "initiative": 22,
+  "movement": 4,
+  "actions": [ { "kind": "attack_melee", "damage": 2 } ],
+  "target_priority": "closest_marine",
+  "movement_mode": "approach_target"
+}

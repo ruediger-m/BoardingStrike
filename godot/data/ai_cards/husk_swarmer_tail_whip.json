@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_tail_whip",
+  "name": "Tail Whip",
+  "initiative": 28,
+  "movement": 1,
+  "actions": [ { "kind": "attack_melee", "damage": 2, "on_hit_condition": "immobilized" } ],
+  "target_priority": "closest_marine",
+  "movement_mode": "approach_target"
+}

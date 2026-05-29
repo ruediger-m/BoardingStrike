@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_pounce",
+  "name": "Pounce",
+  "initiative": 17,
+  "movement": 5,
+  "actions": [ { "kind": "attack_melee", "damage": 1 } ],
+  "target_priority": "closest_marine",
+  "movement_mode": "approach_target"
+}

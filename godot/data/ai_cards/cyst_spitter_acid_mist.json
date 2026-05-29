@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "cyst_spitter_acid_mist",
+  "name": "Acid Mist",
+  "comment": "MVP's only AoE: all marines within range 3 in LoS take 1 damage and gain wounded. Resolved per-target by domain logic in Step 5.",
+  "initiative": 35,
+  "movement": 1,
+  "actions": [ { "kind": "attack_area", "damage": 1, "range": 3, "on_hit_condition": "wounded" } ],
+  "target_priority": "highest_hp_marine_los",
+  "movement_mode": "reposition_for_los"
+}

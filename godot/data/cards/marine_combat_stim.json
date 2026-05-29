@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "id": "marine_combat_stim",
+  "name": "Combat Stim",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 9,
+  "top": { "burn": true, "actions": [ { "kind": "heal", "amount": 3, "target": "self" } ] },
+  "bottom": { "burn": false, "actions": [ { "kind": "move", "distance": 1 } ] },
+  "flavor": "Emergency self-patch."
+}

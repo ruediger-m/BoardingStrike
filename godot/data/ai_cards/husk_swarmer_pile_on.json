@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_pile_on",
+  "name": "Pile On",
+  "initiative": 30,
+  "movement": 3,
+  "actions": [
+    { "kind": "attack_melee", "damage": 2 },
+    { "kind": "attack_melee", "damage": 1 }
+  ],
+  "target_priority": "closest_marine",
+  "movement_mode": "approach_target"
+}

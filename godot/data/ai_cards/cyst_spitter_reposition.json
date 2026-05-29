@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "cyst_spitter_reposition",
+  "name": "Reposition",
+  "initiative": 19,
+  "movement": 4,
+  "actions": [],
+  "target_priority": "highest_hp_marine_los",
+  "movement_mode": "reposition_for_los"
+}

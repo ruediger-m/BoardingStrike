@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "cyst_spitter",
+  "name": "Spitter",
+  "sprite": "art/units/enemy_cyst.png",
+  "hp": 5,
+  "modifier_deck_id": "standard_hostile",
+  "ai_card_ids": [
+    "cyst_spitter_spit",
+    "cyst_spitter_aimed_spit",
+    "cyst_spitter_acid_volley",
+    "cyst_spitter_reposition",
+    "cyst_spitter_slow_spit",
+    "cyst_spitter_burrow",
+    "cyst_spitter_inhale",
+    "cyst_spitter_acid_mist"
+  ]
+}

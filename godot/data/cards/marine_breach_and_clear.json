@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "marine_breach_and_clear",
+  "name": "Breach and Clear",
+  "class_id": "boarding_marine",
+  "level": 1,
+  "initiative": 24,
+  "top": {
+    "burn": true,
+    "actions": [
+      { "kind": "move", "distance": 1 },
+      { "kind": "door", "operation": "toggle" },
+      { "kind": "attack_melee", "damage": 2 }
+    ]
+  },
+  "bottom": { "burn": false, "actions": [ { "kind": "door", "operation": "toggle" } ] },
+  "flavor": "The doorway tool."
+}

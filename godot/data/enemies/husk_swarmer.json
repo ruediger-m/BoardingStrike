@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "husk_swarmer",
+  "name": "Swarmer",
+  "sprite": "art/units/enemy_husk.png",
+  "hp": 3,
+  "modifier_deck_id": "standard_hostile",
+  "ai_card_ids": [
+    "husk_swarmer_charge",
+    "husk_swarmer_pounce",
+    "husk_swarmer_sprint",
+    "husk_swarmer_frenzied_bite",
+    "husk_swarmer_skitter",
+    "husk_swarmer_tail_whip",
+    "husk_swarmer_withdraw",
+    "husk_swarmer_pile_on"
+  ]
+}

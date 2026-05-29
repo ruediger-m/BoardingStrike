@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "husk_swarmer_sprint",
+  "name": "Sprint",
+  "initiative": 14,
+  "movement": 6,
+  "actions": [],
+  "target_priority": "closest_marine",
+  "movement_mode": "approach_target"
+}

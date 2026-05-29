@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "cyst_spitter_burrow",
+  "name": "Burrow",
+  "initiative": 13,
+  "movement": 3,
+  "actions": [],
+  "target_priority": "none",
+  "movement_mode": "reposition_no_los"
+}
