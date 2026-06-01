@@ -1,28 +1,36 @@
 using Godot;
+using BoardingStrike.Core;
+using BoardingStrike.Game.Content;
 using BoardingStrike.Game.Scenario;
 
 namespace BoardingStrike.Presentation;
 
 /// <summary>
-/// Skeleton bootstrap (Iteration 1, Step 1). Its only job is to prove the
-/// dependency boundary: the Godot presentation layer reaches the engine-
-/// independent Game layer (which in turn reaches Core), with no Godot type
-/// leaking the other way.
-///
-/// Replaced by the real ScenarioScene wiring in Step 6 (see
-/// docs/plans/iteration-1-mvp.md and docs/technical/architecture.md).
+/// Skeleton bootstrap. Proves the presentation → game → core boundary by
+/// loading the committed content, starting the Hangar Sweep scenario, and
+/// reporting it on screen and in the Output panel. Replaced by the real
+/// ScenarioScene wiring in Step 6 (see docs/plans/iteration-1-mvp.md).
 /// </summary>
 public partial class Bootstrap : Node2D
 {
     public override void _Ready()
     {
-        var controller = new ScenarioController();
-        string message = controller.Ping();
+        string message;
+        try
+        {
+            string dataDir = ProjectSettings.GlobalizePath("res://data");
+            ContentCatalog catalog = ContentCatalog.Load(dataDir);
+            ScenarioController scenario = ScenarioController.Start(catalog, "mission_hangar_sweep");
+            message = $"{BuildInfo.Banner} — {scenario.MissionName}: "
+                + $"{scenario.Marines.Count} marines vs {scenario.Hostiles.Count} hostiles.";
+        }
+        catch (System.Exception ex)
+        {
+            message = $"{BuildInfo.Banner} — content load failed: {ex.Message}";
+        }
 
-        // Sign of life in the editor/console output.
         GD.Print($"[BoardingStrike] {message}");
 
-        // And on screen, so opening the project shows something immediately.
         var label = GetNodeOrNull<Label>("StatusLabel");
         if (label is not null)
         {
