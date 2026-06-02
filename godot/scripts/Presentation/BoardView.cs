@@ -23,11 +23,11 @@ public partial class BoardView : Node2D
     private static readonly Color FloorFill = new("2b3038");
     private static readonly Color FloorEdge = new("3a4250");
     private static readonly Color WallColor = new("0d0f12");
-    private static readonly Color DoorClosed = new("ff7a2f");
+    private static readonly Color DoorClosed = new("e5484d"); // warning red (distinct from marine orange)
     private static readonly Color DoorOpen = new("5bd6c0");
-    private static readonly Color MarineColor = new("ff7a2f");
-    private static readonly Color SwarmerColor = new("7fd44a");
-    private static readonly Color SpitterColor = new("4a8f5b");
+    private static readonly Color MarineColor = new("ff7a2f"); // Vanguard hi-vis orange
+    private static readonly Color SwarmerColor = new("7fd44a"); // Brood sickly green
+    private static readonly Color SpitterColor = new("a96bd6"); // Brood dull purple (distinct from swarmer)
     private static readonly Color CoordColor = new("8a93a3");
 
     private readonly HexLayout _layout = new(HexSize);
