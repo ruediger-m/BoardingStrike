@@ -30,6 +30,8 @@ godot/mono_crash.*.json
 /export/
 /build/
 export_presets.cfg
+# Editor-generated backups (e.g. csproj backup on engine version upgrade).
+*.old
 
 # ---------------------------------------------------------------------------
 # IDEs / editors

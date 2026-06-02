@@ -28,6 +28,8 @@ public sealed class BoardState : IHexGraph, ISightMap
 
     public IReadOnlyCollection<HexCoord> FloorCells => _floor;
 
+    public IReadOnlyCollection<HexEdge> Walls => _walls;
+
     public IReadOnlyCollection<HexEdge> Doors => _doorOpen.Keys;
 
     /// <summary>Builds the board geometry (cells, walls, doors) from map content.</summary>
