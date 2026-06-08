@@ -395,7 +395,7 @@ public sealed class RoundResolver
 
         unit.TakeDamage(1);
         bool killed = !unit.IsAlive;
-        log.Add(new ConditionDamage(unit.Id, 1, killed));
+        log.Add(new ConditionDamage(unit.Id, 1, killed, unit.Hp));
         if (!killed)
         {
             return false;

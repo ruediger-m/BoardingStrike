@@ -35,15 +35,16 @@ public sealed record AttackResolved(
     int BaseDamage,
     int ModifiedDamage,
     int DealtDamage,
-    bool Killed) : GameEvent;
+    bool Killed,
+    int TargetRemainingHp) : GameEvent;
 
-public sealed record HealApplied(string UnitId, int Amount) : GameEvent;
+public sealed record HealApplied(string UnitId, int Amount, int RemainingHp) : GameEvent;
 
 public sealed record ConditionApplied(string UnitId, ConditionKind Condition) : GameEvent;
 
 public sealed record ConditionExpired(string UnitId, ConditionKind Condition) : GameEvent;
 
-public sealed record ConditionDamage(string UnitId, int Amount, bool Killed) : GameEvent;
+public sealed record ConditionDamage(string UnitId, int Amount, bool Killed, int RemainingHp) : GameEvent;
 
 public sealed record DoorChanged(HexEdge Edge, bool Open) : GameEvent;
 

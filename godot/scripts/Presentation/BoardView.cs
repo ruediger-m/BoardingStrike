@@ -2,18 +2,16 @@ using Godot;
 using BoardingStrike.Core.Hex;
 using BoardingStrike.Game.Board;
 using BoardingStrike.Game.Scenario;
-using BoardingStrike.Game.Units;
 
 namespace BoardingStrike.Presentation;
 
 /// <summary>
-/// Renders the hex board with placeholder programmer art (docs/technical/art-pipeline.md):
-/// solid-colour flat-top hexes, wall/door edges, and simple unit markers. Hex
-/// pixel geometry comes from <see cref="HexLayout"/> in Core — the single
-/// source of truth shared with the rules engine.
-///
-/// <para>Step 6 draws a static view of the current scenario state. Step 7 makes
-/// the units live (event-driven movement, HP, conditions).</para>
+/// Renders the static board terrain with placeholder programmer art
+/// (docs/technical/art-pipeline.md): solid-colour flat-top hexes and wall/door
+/// edges. Hex pixel geometry comes from <see cref="HexLayout"/> in Core — the
+/// single source of truth shared with the rules engine. Units are drawn
+/// separately as <see cref="UnitView"/> nodes so they can animate; call
+/// <see cref="Refresh"/> after a door changes to redraw.
 /// </summary>
 public partial class BoardView : Node2D
 {
@@ -23,11 +21,8 @@ public partial class BoardView : Node2D
     private static readonly Color FloorFill = new("2b3038");
     private static readonly Color FloorEdge = new("3a4250");
     private static readonly Color WallColor = new("0d0f12");
-    private static readonly Color DoorClosed = new("e5484d"); // warning red (distinct from marine orange)
+    private static readonly Color DoorClosed = new("e5484d"); // warning red
     private static readonly Color DoorOpen = new("5bd6c0");
-    private static readonly Color MarineColor = new("ff7a2f"); // Vanguard hi-vis orange
-    private static readonly Color SwarmerColor = new("7fd44a"); // Brood sickly green
-    private static readonly Color SpitterColor = new("a96bd6"); // Brood dull purple (distinct from swarmer)
     private static readonly Color CoordColor = new("8a93a3");
 
     private readonly HexLayout _layout = new(HexSize);
@@ -83,52 +78,9 @@ public partial class BoardView : Node2D
             DrawLine(a, b, open ? DoorOpen : DoorClosed, open ? 2.0f : 5.0f);
         }
 
-        foreach (Hostile hostile in _view.Hostiles)
-        {
-            if (hostile.IsAlive)
-            {
-                DrawHostile(hostile);
-            }
-        }
-
-        foreach (Marine marine in _view.Marines)
-        {
-            if (marine.IsActive)
-            {
-                DrawMarine(marine);
-            }
-        }
-
         if (_showCoords)
         {
             DrawCoordinates(board);
-        }
-    }
-
-    private void DrawMarine(Marine marine)
-    {
-        Vector2 c = CenterOf(marine.Position);
-        float h = HexSize * 0.5f;
-        DrawRect(new Rect2(c - new Vector2(h, h), new Vector2(h * 2, h * 2)), MarineColor);
-    }
-
-    private void DrawHostile(Hostile hostile)
-    {
-        Vector2 c = CenterOf(hostile.Position);
-        float r = HexSize * 0.6f;
-        if (hostile.Enemy.Id == "cyst_spitter")
-        {
-            // diamond
-            DrawColoredPolygon(
-                [c + new Vector2(0, -r), c + new Vector2(r, 0), c + new Vector2(0, r), c + new Vector2(-r, 0)],
-                SpitterColor);
-        }
-        else
-        {
-            // triangle (swarmer)
-            DrawColoredPolygon(
-                [c + new Vector2(0, -r), c + new Vector2(r, r), c + new Vector2(-r, r)],
-                SwarmerColor);
         }
     }
 

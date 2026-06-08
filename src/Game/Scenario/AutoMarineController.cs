@@ -1,20 +1,19 @@
 using BoardingStrike.Core.Hex;
 using BoardingStrike.Game.Board;
 using BoardingStrike.Game.Cards;
-using BoardingStrike.Game.Scenario;
 using BoardingStrike.Game.Units;
 
-namespace BoardingStrike.Game.Tests.Engine;
+namespace BoardingStrike.Game.Scenario;
 
 /// <summary>
-/// A deterministic, door-aware greedy marine controller for the integration
-/// smoke test. Each turn it heads for the nearest engageable hostile; when no
-/// hostile is reachable (a closed door is in the way) it walks to the nearest
-/// reachable door, and once standing on the door it commits the breach card to
-/// open it. Not "smart" — just enough to exercise the whole engine against the
-/// real Hangar Sweep content and drive it to a terminal state.
+/// A deterministic, door-aware automatic marine controller used for headless
+/// runs, tests, and in-editor auto-play (before the real click-to-play UI in
+/// Step 8). Each turn it heads for the nearest engageable hostile; when a closed
+/// door blocks the way it walks to that door and, once standing on it, commits
+/// the breach card to open it, then attacks whatever is in reach. Not "smart" —
+/// just enough to drive a scenario to a terminal state.
 /// </summary>
-internal sealed class GreedyController : IMarineController
+public sealed class AutoMarineController : IMarineController
 {
     private const string BreachCardId = "marine_breach_and_clear";
 
@@ -26,16 +25,13 @@ internal sealed class GreedyController : IMarineController
         Card a, b;
         if (onClosedDoor && hand.FirstOrDefault(c => c.Id == BreachCardId) is Card breach)
         {
-            // Standing on a door: use the breach card (its top carries the door op) to open it.
             a = breach;
             b = hand.First(c => !ReferenceEquals(c, a));
         }
         else
         {
-            // Otherwise approach: an attack card up top, a move-capable card on the bottom.
             a = hand.FirstOrDefault(c => c.Id != BreachCardId && IsAttack(c.Top)) ?? hand.First(c => c.Id != BreachCardId);
-            b = hand.FirstOrDefault(c => !ReferenceEquals(c, a) && IsMove(c.Bottom))
-                ?? hand.First(c => !ReferenceEquals(c, a));
+            b = hand.FirstOrDefault(c => !ReferenceEquals(c, a) && IsMove(c.Bottom)) ?? hand.First(c => !ReferenceEquals(c, a));
         }
 
         return new PlayCommit(a.Id, b.Id);
@@ -82,10 +78,6 @@ internal sealed class GreedyController : IMarineController
         return targets;
     }
 
-    /// <summary>
-    /// Where the marine should move: toward the nearest hostile it can actually
-    /// reach, otherwise toward the nearest reachable closed door to breach it.
-    /// </summary>
     private static HexCoord ChooseGoal(Marine marine, IScenarioView view)
     {
         BoardState board = view.Board;
@@ -101,7 +93,6 @@ internal sealed class GreedyController : IMarineController
             return engageable.Position;
         }
 
-        // No hostile reachable — walk to the nearest reachable closed-door endpoint.
         HexCoord? doorGoal = board.Doors
             .Where(e => !board.IsDoorOpen(e.A, e.B))
             .SelectMany(e => new[] { e.A, e.B })
@@ -114,10 +105,7 @@ internal sealed class GreedyController : IMarineController
     }
 
     private static HexCoord NearestReachableNeighbor(Hostile hostile, IReadOnlyDictionary<HexCoord, int> reachable) =>
-        hostile.Position.Neighbors()
-            .Where(reachable.ContainsKey)
-            .OrderBy(n => reachable[n])
-            .First();
+        hostile.Position.Neighbors().Where(reachable.ContainsKey).OrderBy(n => reachable[n]).First();
 
     private static HexEdge? AdjacentClosedDoor(Marine marine, IScenarioView view) =>
         view.Board.Doors

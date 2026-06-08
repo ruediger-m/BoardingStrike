@@ -55,7 +55,7 @@ public sealed class ScenarioEngineTests
         ContentCatalog catalog = ContentCatalog.Load(RepoLocator.GodotDataDir());
         ScenarioController scenario = ScenarioController.Start(catalog, "mission_hangar_sweep", seedOverride: 42);
 
-        IReadOnlyList<GameEvent> events = scenario.Play(new GreedyController(), maxRounds: 80);
+        IReadOnlyList<GameEvent> events = scenario.Play(new AutoMarineController(), maxRounds: 80);
 
         // Reached a terminal state without errors...
         Assert.NotEqual(ScenarioStatus.InProgress, scenario.Status);
@@ -72,10 +72,10 @@ public sealed class ScenarioEngineTests
         ContentCatalog catalog = ContentCatalog.Load(RepoLocator.GodotDataDir());
 
         ScenarioController a = ScenarioController.Start(catalog, "mission_hangar_sweep", seedOverride: 7);
-        a.Play(new GreedyController(), maxRounds: 80);
+        a.Play(new AutoMarineController(), maxRounds: 80);
 
         ScenarioController b = ScenarioController.Start(catalog, "mission_hangar_sweep", seedOverride: 7);
-        b.Play(new GreedyController(), maxRounds: 80);
+        b.Play(new AutoMarineController(), maxRounds: 80);
 
         Assert.Equal(a.Status, b.Status);
         Assert.Equal(a.Round, b.Round);

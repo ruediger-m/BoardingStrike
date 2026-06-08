@@ -39,7 +39,7 @@ public sealed class ActionResolver
         int dealt = target.TakeDamage(modified);
         bool killed = !target.IsAlive;
 
-        _log.Add(new AttackResolved(attacker.Id, target.Id, baseDamage, modified, dealt, killed));
+        _log.Add(new AttackResolved(attacker.Id, target.Id, baseDamage, modified, dealt, killed, target.Hp));
 
         if (killed)
         {
@@ -70,7 +70,7 @@ public sealed class ActionResolver
     {
         bool hadWound = unit.Conditions.Has(ConditionKind.Wounded);
         unit.Heal(amount);
-        _log.Add(new HealApplied(unit.Id, amount));
+        _log.Add(new HealApplied(unit.Id, amount, unit.Hp));
         if (hadWound)
         {
             _log.Add(new ConditionExpired(unit.Id, ConditionKind.Wounded));
